@@ -9,7 +9,7 @@ manager = Manager(create_app)
 
 
 @manager.command
-def createdb():
+def create_db():
     db.init_app(current_app)
     db.create_all()
 
