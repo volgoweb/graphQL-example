@@ -24,8 +24,8 @@ class Card(Base):
     __tablename__ = CARD_MODEL_TBL_NAME
 
     id = sa.Column(sa.Integer, primary_key=True)
-    title = sa.Column(sa.String(250), nullable=False)
-    created_at = sa.Column(sa.DateTime(timezone=True), server_default=now())
+    title = sa.Column(sa.String(250), nullable=False, doc='Title of card', comment='Plain text that contains a name of card.')
+    created_at = sa.Column(sa.DateTime(timezone=True), server_default=now(), doc='The date and time when the card was created.')
     # actions_count = sa.Column(sa.Integer, nullable=False, default=0, index=True)
     actions = sa.orm.relationship('Action', secondary=card_actions)
 

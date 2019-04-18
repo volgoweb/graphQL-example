@@ -2,6 +2,7 @@ import graphene
 from graphene_sqlalchemy import SQLAlchemyConnectionField
 
 from .cards.schema.queries import CardConnectionField, CardConnection
+from .cards.schema.mutations import CardMutation, CardMutation
 
 
 class Query(graphene.ObjectType):
@@ -12,4 +13,8 @@ class Query(graphene.ObjectType):
     })
 
 
-schema = graphene.Schema(query=Query)
+class Mutation(graphene.ObjectType):
+    create_card = CardMutation.Field()
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
