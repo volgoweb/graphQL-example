@@ -10,6 +10,7 @@ class Query(graphene.ObjectType):
     all_cards = SQLAlchemyConnectionField(CardConnection)
     filter_cards = CardConnectionField(CardConnection, args={
         'title': graphene.Argument(graphene.String),
+        'action': graphene.Argument(graphene.String),
     })
 
 
